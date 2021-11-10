@@ -2,7 +2,7 @@
 
 PHP BIN Checker Bot
 
-Thanks to [Λгɳαɓ <XLR8/>](https://telegram.me/Arnab431) for  https://binssuapi.vercel.app API
+Gracias a [Λгɳαɓ <XLR8/>](https://t.me/DanGel_Glr)
 
 ## Heroku Deploy
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Dangel2/chk)
