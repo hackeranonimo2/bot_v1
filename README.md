@@ -5,7 +5,10 @@ PHP BIN Checker Bot
 Gracias a [⫷ ɴͥɪͣᴄͫᴀ͜͠☆ ₫₳Ϟ₲϶Γ™⫸<XLR8/>](https://t.me/DanGel_Glr)
 
 ## Heroku Deploy
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Dangel2/chk)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Dangel2
+/
+chk_dangel
+)
 
 Después de implementar la aplicación en Heroku: configure Webhook
 
