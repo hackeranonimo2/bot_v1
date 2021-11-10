@@ -1,12 +1,11 @@
 {
-    "name": "Telegram Bot",
+    "name": "Chk DanGel",
     "description": "A simple PHP powered Telegram Bot",
     "keywords": [
         "PHP",
         "Telegram",
         "Bot"
     ],
-    "website": "https://reboot13.hashnode.dev",
     "repository": "https://github.com/reboot13-git/telegram-bot",
     "success_url": "/",
     "env": {
