@@ -17,6 +17,37 @@ API Token: obtenga Api Token de [@botfather](https://telegram.me/botfather)
 
 ### Command
 
-`!bin xxxxxx`
+- [x] Date (`/date`)
+
+- [x] Time (`/time`)
+
+- [x] Dice (`/dice`)
+
+- [x] Toss (Random Heads or Tails) (`/toss`)
+
+- [x] User Info (`/info`)
+
+- [x] BIN Data (`/bin xxxxx`)
+
+- [x] Weather API (`/weather <city name>`)
+
+- [x] Dictionary API (`/dict <word>`)
+
+- [x] Google search (`/search <query>`)
+
+- [x] Youtube Search (`/syt <query>`) 
+
+- [x] BTC rate (`/btcrate`)
+
+- [x] ETH rate (`/ethrate`)
+
+- [x] LTC rate (`/ltcrate`)
+
+- [x] Download github Repository (`/repodl <username/repo_name>`)
+
+- [x] Github User Search (`/git <username>`)
+
+- [x] Broadcast (only selected ids) (`/broadcast <message>`)
+
 
 [Telegram](https://t.me/joinchat/4itx62WufsQ1ZGYx) ||
