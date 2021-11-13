@@ -18,7 +18,7 @@ $channel_id = "-100xxxxxxxxxx";
 
     //Extact match Commands
     if($message == "/start"){
-        send_message($chat_id,$message_id, "");
+        send_message($chat_id,$message_id, "hola mundo");
     }
 
     if($message == "/cmds" || $message == "/cmds@github_rbot"){
