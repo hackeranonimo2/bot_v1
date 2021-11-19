@@ -18,27 +18,28 @@ $channel_id = "-100xxxxxxxxxx";
 
     //Extact match Commands
     if($message == "/start"){
-        send_message($chat_id,$message_id, "◦•●◉✿ B͎I͎E͎N͎V͎E͎N͎I͎D͎O͎ ✿◉●•◦");
+        send_message($chat_id,$message_id, "◦•●◉𖡝 B͎I͎E͎N͎V͎E͎N͎I͎D͎O͎ 𖡝◉●•◦
+        𝚂𝚘𝚢 𝚙𝚘𝚜𝚎𝚒𝚍𝚘𝚗 𝚙𝚞𝚎𝚍𝚎𝚜 𝚞𝚝𝚒𝚕𝚒𝚣𝚊𝚛 /cmds  𝚙𝚊𝚛𝚊 𝚟𝚎𝚛 𝚖𝚒𝚜 𝚏𝚞𝚗𝚌𝚒𝚘𝚗𝚎𝚜 𝚍𝚒𝚜𝚙𝚘𝚗𝚒𝚋𝚕𝚎 𝚊𝚌𝚝𝚞𝚊𝚕𝚖𝚎𝚗𝚝𝚎.");
     }
 
-    if($message == "/cmds" || $message == "/cmds@github_rbot"){
+    if($message == "/cmds" || $message == "/comandos"){
         send_message($chat_id,$message_id, "
-          /search <query> (Google search)
-          \n/bin <bin> (Bin Data)
-          \n/weather <name of your city> (Current weather Status)
-          \n/dice <dice emoji>
-          \n/date (today's date)
-          \n/dict <word> (Dictionary)
-          \n/time (current time) 
-          \n/git <username> (Github User Info)
+          /buscar <luego escribes lo que quieres buscar> ( Buscador de Google)
+          \n/bin <Colocar el bin y dejar solo un espacio luego del comando> (Bin Data)
+          \n/clima <nombre de tu pais o ciudad> (Estado actual del tiempo)
+          \n/dado <dado emoji>
+          \n/fecha 
+          \n/dict <Palabra> (Diccionario)
+          \n/tiempo (tiempo actual) 
+          \n/git <username> (Github Informacion del usuario)
           \n/repodl <username/repo_name> (Download Github Repository)
-          \n/cryptorate
+          \n/list_crypto
           \n/toss (Random Heads or Tails)
-          \n/syt <query> (Search on Youtube)
+          \n/yt <palabra> (Buscador en Youtube)
           \n/info (User Info)
           ");
     }
-      if($message == "/cryptorate" || $message == "/cryptorate@github_rbot"){
+      if($message == "/list_crypto" || $message == "/lista crypto"){
       
         send_message($chat_id,$message_id,"
 	 Use command to check current Crypto rates
@@ -48,7 +49,7 @@ $channel_id = "-100xxxxxxxxxx";
          ");
     }
 
-    if($message == "/date"){
+    if($message == "/fecha"){
         $date = date("d/m/y");
         send_message($chat_id,$message_id, $date);
     }
@@ -56,21 +57,23 @@ $channel_id = "-100xxxxxxxxxx";
         $help = "Contact @reboot13_dev";
         send_message($chat_id,$message_id, $help);
     }
-   if($message == "/time"){
+   if($message == "/tiempo"){
         $time = date("h:i a", time());
         send_message($chat_id,$message_id, "$time IST");
     }
 
   if($message == "/sc" || $message == "/si" || $message == "/st" || $message == "/cs" || $message == "/ua" || $message == "/at"  ){
-   $botdown = "@WorldCheckerBot is under Maintenance";
+   $botdown = "@Poseidon_chk_bot esta bajo Mantenimiento";
         send_message($chat_id,$message_id, $botdown);
     }
 
-if($message == "/dice"){
+if($message == "/dado"){
         sendDice($chat_id,$message_id, "🎲");
     }
 
-
+if($message == "/dardo"){
+        sendDice($chat_id,$message_id, "🎯");
+    }
     
 
 if($message == "/toss"){
@@ -91,7 +94,7 @@ if($message == "/toss"){
 
 
     //Google Search
-if (strpos($message, "/search") === 0) {
+if (strpos($message, "/buscar") === 0) {
         $search = substr($message, 8);
          $search = preg_replace('/\s+/', '+', $search);
 $googleSearch = "[View On Web](https://www.google.com/search?q=$search)";
@@ -110,7 +113,7 @@ if ($gitdlurl != null) {
 }
 
 //Youtube Search
-if (strpos($message, "/syt") === 0) {
+if (strpos($message, "/yt") === 0) {
 $syt = substr($message, 5);
 $syt = preg_replace('/\s+/', '+', $syt);
 $yurl = "[Open Youtube](https://www.youtube.com/results?search_query=$syt)";
@@ -171,22 +174,22 @@ $flag = $data['data']['countryInfo']['emoji'];
  $result1 = $data['result'];
 
     if ($result1 == true) {
-    send_MDmessage($chat_id,$message_id, "***✅ Valid BIN
-Bin: $bin
-Brand: $brand
-Level: $level
-Bank: $bank
-Country: $country $flag
-Type:$type
-Checked By @$username ***");
+    send_MDmessage($chat_id,$message_id, "***✅𝑩𝑰𝑵 𝑽𝑨𝑳𝑰𝑫𝑶✅
+𝗕𝗶𝗻: $bin
+𝗕𝗿𝗮𝗻𝗱: $brand
+𝗟𝗲𝘃𝗲𝗹: $level
+𝗕𝗮𝗻𝗸: $bank
+𝗖𝗼𝘂𝗻𝘁𝗿𝘆: $country $flag
+𝗧𝘆𝗽𝗲:$type
+𝗖𝗵𝗲𝗰𝗸𝗲𝗱 𝗕𝘆 @$username ***");
     }
 else {
-    send_MDmessage($chat_id,$message_id, "***Enter Valid BIN***");
+    send_MDmessage($chat_id,$message_id, "***𝗜𝗻𝘀𝗲𝗿𝘁𝗮 𝘂𝗻 𝗕𝗜𝗡 𝘃𝗮𝗹𝗶𝗱𝗼***");
 }
 }
 
     //Wheather API
-if(strpos($message, "/weather") === 0){
+if(strpos($message, "/clima") === 0){
         $location = substr($message, 9);
         $weatherToken = "89ef8a05b6c964f4cab9e2f97f696c81"; ///get api key from openweathermap.org
 
