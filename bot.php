@@ -72,7 +72,7 @@ if($message == "/dado"){
     }
 
 if($message == "/dardo"){
-        sendDart($chat_id,$message_id, "🎯");
+        send_message($chat_id,$message_id, "🎯");
     }
     
 
