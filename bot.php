@@ -1,16 +1,19 @@
 <?php
 
-    date_default_timezone_set("Asia/kolkata");
+    date_default_timezone_set("America/Managua");
     //Data From Webhook
     $content = file_get_contents("php://input");
     $update = json_decode($content, true);
     $chat_id = $update["message"]["chat"]["id"];
+    $userId = $update["message"]["from"]["id"];
     $message = $update["message"]["text"];
     $message_id = $update["message"]["message_id"];
     $id = $update["message"]["from"]["id"];
     $username = $update["message"]["from"]["username"];
     $firstname = $update["message"]["from"]["first_name"];
-    $chatname = $_ENV['CHAT']; 
+    $chatname = $_ENV['CHAT'];
+    $mention = <a href='tg://user?id=$userId'>$firstname</a> 
+    $mention2 = <a href='tg://user?id=1799882584'>$firstname</a>
  /// for broadcasting in Channel
 $channel_id = "-100xxxxxxxxxx";
 
@@ -26,15 +29,15 @@ $channel_id = "-100xxxxxxxxxx";
         send_message($chat_id,$message_id, "
           /buscar <luego escribes lo que quieres buscar> ( Buscador de Google)
           \n/bin <Colocar el bin y dejar solo un espacio luego del comando> (Bin Data)
-          \n/clima <nombre de tu pais o ciudad> (Estado actual del tiempo)
+          \n/clima <nombre de tu pais> (Estado actual del tiempo)
           \n/dado <dado emoji>
           \n/fecha 
           \n/dict <Palabra> (Diccionario)
-          \n/tiempo (tiempo actual) 
+          \n/hora (hora en Nicararagua) 
           \n/git <username> (Github Informacion del usuario)
           \n/repodl <username/repo_name> (Download Github Repository)
           \n/list_crypto
-          \n/toss (Random Heads or Tails)
+          \n/random (Random del 1 al 10)
           \n/yt <palabra> (Buscador en Youtube)
           \n/info (User Info)
           ");
@@ -42,7 +45,7 @@ $channel_id = "-100xxxxxxxxxx";
       if($message == "/list_crypto" || $message == "/lista crypto"){
       
         send_message($chat_id,$message_id,"
-	 Use command to check current Crypto rates
+   Use command to check current Crypto rates
          \n/btcrate  Bitcoin rate
          \n/ethrate  Etherum rate
          \n/ltcrate  Litecoin rate
@@ -50,16 +53,16 @@ $channel_id = "-100xxxxxxxxxx";
     }
 
     if($message == "/fecha"){
-        $date = date("d/m/y");
+        $date = date("d/f/y");
         send_message($chat_id,$message_id, $date);
     }
    if($message == "/help"){
-        $help = "Contact @reboot13_dev";
+        $help = "Contacto: $mention2";
         send_message($chat_id,$message_id, $help);
     }
-   if($message == "/tiempo"){
-        $time = date("h:i a", time());
-        send_message($chat_id,$message_id, "$time IST");
+   if($message == "/hora"){
+        $time = date("h:i A", time());
+        send_message($chat_id,$message_id, "$time GMT);
     }
 
   if($message == "/sc" || $message == "/si" || $message == "/st" || $message == "/cs" || $message == "/ua" || $message == "/at"  ){
@@ -70,21 +73,17 @@ $channel_id = "-100xxxxxxxxxx";
 if($message == "/dado"){
         sendDice($chat_id,$message_id, "🎲");
     }
-
-if($message == "/dardo"){
-        send_message($chat_id,$message_id, "🎯");
-    }
     
 
-if($message == "/toss"){
-      $toss =array("Heads","Tails","Heads","Tails","Heads");
+if($message == "/random"){
+      $toss =array("1","2","3","4","5","6","7","8","9","10");
     $random_toss=array_rand($toss,4);
     $tossed = $toss[$random_toss[0]];
-        send_message($chat_id,$message_id, "$tossed \nTossed By: @$username");
+        send_message($chat_id,$message_id, "$tossed \nTossed By: $mention");
     }
 
      if($message == "/info"){
-        send_message($chat_id,$message_id, "User Info \nName: $firstname\nID:$id \nUsername: @$username");
+        send_message($chat_id,$message_id, "User Info \nName: $firstname\nID:$id \nUsername: $mention");
     }
 
 
@@ -114,9 +113,9 @@ if ($gitdlurl != null) {
 
 //Youtube Search
 if (strpos($message, "/yt") === 0) {
-$syt = substr($message, 5);
+$syt = substr($message, 6);
 $syt = preg_replace('/\s+/', '+', $syt);
-$yurl = "[Open Youtube](https://www.youtube.com/results?search_query=$syt)";
+$yurl = "[Abrir enlace de Youtube](https://www.youtube.com/results?search_query=$syt)";
 if ($syt != null) {
   send_MDmessage($chat_id,$message_id, $yurl);
 }
@@ -126,11 +125,11 @@ if ($syt != null) {
 ///Channel BroadCast
 if (strpos($message, "/broadcast") === 0) {
 $broadcast = substr($message, 11);
-if ($id == 1171876903 /*|| $id == 1478297206 || $id == 654455829 || $id == 638178378 || $id == 971532801*/ ) { // || uncomment for multiple admins
+if ($id == 1799882584 /*|| $id == 1478297206 || $id == 654455829 || $id == 638178378 || $id == 971532801*/ ) { // || uncomment for multiple admins
   send_Cmessage($channel_id, $broadcast);
 }
 else {
-    send_message($chat_id,$message_id, "You are not authorized to use this command");
+    send_message($chat_id,$message_id, "No tienes autorización para utilizar este comando.");
  // example
 ///send_message("-100xxxxxxxxxx",$message_id, "You are not authorized to use this command");
 ///send_message("@channel_username",$message_id, "You are not authorized to use this command");
@@ -174,14 +173,19 @@ $flag = $data['data']['countryInfo']['emoji'];
  $result1 = $data['result'];
 
     if ($result1 == true) {
-    send_MDmessage($chat_id,$message_id, "***✅𝑩𝑰𝑵 𝑽𝑨𝑳𝑰𝑫𝑶✅
-𝗕𝗶𝗻: $bin
-𝗕𝗿𝗮𝗻𝗱: $brand
-𝗟𝗲𝘃𝗲𝗹: $level
-𝗕𝗮𝗻𝗸: $bank
-𝗖𝗼𝘂𝗻𝘁𝗿𝘆: $country $flag
-𝗧𝘆𝗽𝗲:$type
-𝗖𝗵𝗲𝗰𝗸𝗲𝗱 𝗕𝘆 @$username ***");
+    send_MDmessage($chat_id,$message_id, "
+╔╦═• ✠ • ═ • ✠ •═╦╗
+⚏★𝙱𝙸𝙽 𝙻𝙾𝙾𝙺𝚄𝙿★⚏
+╚╩═• ✠ • ═ • ✠ •═╩╝
+
+    ✅𝑩𝑰𝑵 𝑽𝑨𝑳𝑰𝑫𝑶✅
+💳𝗕𝗶𝗻: $bin
+💵𝗕𝗿𝗮𝗻𝗱: $brand
+🏆𝗟𝗲𝘃𝗲𝗹: $level
+🏦𝗕𝗮𝗻𝗸: $bank
+🌐𝗖𝗼𝘂𝗻𝘁𝗿𝘆: $country $flag
+📊𝗧𝘆𝗽𝗲: $type
+👤𝗖𝗵𝗲𝗰𝗸𝗲𝗱 𝗕𝘆: $mention");
     }
 else {
     send_MDmessage($chat_id,$message_id, "***𝗜𝗻𝘀𝗲𝗿𝘁𝗮 𝘂𝗻 𝗕𝗜𝗡 𝘃𝗮𝗹𝗶𝗱𝗼***");
@@ -196,19 +200,19 @@ if(strpos($message, "/clima") === 0){
    $curl = curl_init();
    curl_setopt_array($curl, [
 CURLOPT_URL => "http://api.openweathermap.org/data/2.5/weather?q=$location&appid=$weatherToken",
-	CURLOPT_RETURNTRANSFER => true,
-	CURLOPT_FOLLOWLOCATION => true,
-	CURLOPT_ENCODING => "",
-	CURLOPT_MAXREDIRS => 10,
-	CURLOPT_TIMEOUT => 50,
-	CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-	CURLOPT_CUSTOMREQUEST => "GET",
-	CURLOPT_HTTPHEADER => [
-		"Accept: */*",
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_FOLLOWLOCATION => true,
+  CURLOPT_ENCODING => "",
+  CURLOPT_MAXREDIRS => 10,
+  CURLOPT_TIMEOUT => 50,
+  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+  CURLOPT_CUSTOMREQUEST => "GET",
+  CURLOPT_HTTPHEADER => [
+    "Accept: */*",
         "Accept-Language: en-GB,en-US;q=0.9,en;q=0.8,hi;q=0.7",
         "Host: api.openweathermap.org",
         "sec-fetch-dest: empty",
-		"sec-fetch-site: same-site"
+    "sec-fetch-site: same-site"
   ],
 ]);
 
@@ -229,14 +233,14 @@ $celcius = $temp - $kelvin;
 $feels = $feels_like - $kelvin;
 
 if ($location = $name) {
-        send_MDmessage($chat_id,$message_id, "***
-Weather at $location: $weather
+        send_MDmessage($chat_id,$message_id, "
+Clima en $location: $weather
 Status: $description
 Temp : $celcius °C
 Feels Like : $feels °C
 Humidity: $humidity
 Country: $country 
-Checked By @$username ***");
+Checked By $mention");
 }
 else {
            send_message($chat_id,$message_id, "Invalid City");
@@ -345,14 +349,14 @@ if(strpos($message, "/btcrate") === 0){
    $curl = curl_init();
    curl_setopt_array($curl, [
 CURLOPT_URL => "https://api.coinbase.com/v2/prices/BTC-USD/spot",
-	CURLOPT_RETURNTRANSFER => true,
-	CURLOPT_FOLLOWLOCATION => true,
-	CURLOPT_ENCODING => "",
-	CURLOPT_MAXREDIRS => 10,
-	CURLOPT_TIMEOUT => 50,
-	CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-	CURLOPT_CUSTOMREQUEST => "GET",
-	CURLOPT_HTTPHEADER => [
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_FOLLOWLOCATION => true,
+  CURLOPT_ENCODING => "",
+  CURLOPT_MAXREDIRS => 10,
+  CURLOPT_TIMEOUT => 50,
+  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+  CURLOPT_CUSTOMREQUEST => "GET",
+  CURLOPT_HTTPHEADER => [
         "accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
         "accept-encoding: gzip, deflate, br",
         "accept-language: en-IN,en-GB;q=0.9,en-US;q=0.8,en;q=0.7", 
@@ -373,14 +377,14 @@ if(strpos($message, "/ethrate") === 0){
    $curl = curl_init();
    curl_setopt_array($curl, [
 CURLOPT_URL => "https://api.coinbase.com/v2/prices/ETH-USD/spot",
-	CURLOPT_RETURNTRANSFER => true,
-	CURLOPT_FOLLOWLOCATION => true,
-	CURLOPT_ENCODING => "",
-	CURLOPT_MAXREDIRS => 10,
-	CURLOPT_TIMEOUT => 50,
-	CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-	CURLOPT_CUSTOMREQUEST => "GET",
-	CURLOPT_HTTPHEADER => [
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_FOLLOWLOCATION => true,
+  CURLOPT_ENCODING => "",
+  CURLOPT_MAXREDIRS => 10,
+  CURLOPT_TIMEOUT => 50,
+  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+  CURLOPT_CUSTOMREQUEST => "GET",
+  CURLOPT_HTTPHEADER => [
         "accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
         "accept-encoding: gzip, deflate, br",
         "accept-language: en-IN,en-GB;q=0.9,en-US;q=0.8,en;q=0.7", 
@@ -400,14 +404,14 @@ if(strpos($message, "/ltcrate") === 0){
    $curl = curl_init();
    curl_setopt_array($curl, [
 CURLOPT_URL => "https://api.coinbase.com/v2/prices/LTC-USD/spot",
-	CURLOPT_RETURNTRANSFER => true,
-	CURLOPT_FOLLOWLOCATION => true,
-	CURLOPT_ENCODING => "",
-	CURLOPT_MAXREDIRS => 10,
-	CURLOPT_TIMEOUT => 50,
-	CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-	CURLOPT_CUSTOMREQUEST => "GET",
-	CURLOPT_HTTPHEADER => [
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_FOLLOWLOCATION => true,
+  CURLOPT_ENCODING => "",
+  CURLOPT_MAXREDIRS => 10,
+  CURLOPT_TIMEOUT => 50,
+  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+  CURLOPT_CUSTOMREQUEST => "GET",
+  CURLOPT_HTTPHEADER => [
         "accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
         "accept-encoding: gzip, deflate, br",
         "accept-language: en-IN,en-GB;q=0.9,en-US;q=0.8,en;q=0.7", 
@@ -423,7 +427,7 @@ $LTCvalueinUSD = $currentLTCvalue["data"]["amount"];
 send_MDmessage($chat_id,$message_id, "***1 LTC \nUSD = $LTCvalueinUSD $ \nRate checked by @$username ***");
 }
 
-	
+  
 
 
 
