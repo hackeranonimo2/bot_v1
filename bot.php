@@ -62,11 +62,11 @@ $channel_id = "-100xxxxxxxxxx";
     }
    if($message == "/hora"){
         $time = date("h:i A", time());
-        send_message($chat_id,$message_id, "$time GMT);
+        send_message($chat_id,$message_id, "$time");
     }
 
-  if($message == "/sc" || $message == "/si" || $message == "/st" || $message == "/cs" || $message == "/ua" || $message == "/at"  ){
-   $botdown = "@Poseidon_chk_bot esta bajo Mantenimiento";
+    if($message == "/sc" || $message == "/si" || $message == "/st" || $message == "/cs" || $message == "/ua" || $message == "/at"  ){
+   $botdown = "[POSEIDÓN](@Poseidon_chk_bot) esta bajo Mantenimiento";
         send_message($chat_id,$message_id, $botdown);
     }
 
@@ -113,7 +113,7 @@ if ($gitdlurl != null) {
 
 //Youtube Search
 if (strpos($message, "/yt") === 0) {
-$syt = substr($message, 6);
+$syt = substr($message, 5);
 $syt = preg_replace('/\s+/', '+', $syt);
 $yurl = "[Abrir enlace de Youtube](https://www.youtube.com/results?search_query=$syt)";
 if ($syt != null) {
@@ -174,9 +174,9 @@ $flag = $data['data']['countryInfo']['emoji'];
 
     if ($result1 == true) {
     send_MDmessage($chat_id,$message_id, "
-╔╦═• ✠ • ═ • ✠ •═╦╗
-⚏★𝙱𝙸𝙽 𝙻𝙾𝙾𝙺𝚄𝙿★⚏
-╚╩═• ✠ • ═ • ✠ •═╩╝
+   ╔╦═• ✠ • ═ • ✠ •═╦╗
+    ⚏★𝙱𝙸𝙽 𝙻𝙾𝙾𝙺𝚄𝙿★⚏
+   ╚╩═• ✠ • ═ • ✠ •═╩╝
 
     ✅𝑩𝑰𝑵 𝑽𝑨𝑳𝑰𝑫𝑶✅
 💳𝗕𝗶𝗻: $bin
