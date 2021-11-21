@@ -12,8 +12,8 @@
     $username = $update["message"]["from"]["username"];
     $firstname = $update["message"]["from"]["first_name"];
     $chatname = $_ENV['CHAT'];
-    $mention = <a href='tg://user?id=$userId'>$firstname</a> 
-    $mention2 = <a href='tg://user?id=1799882584'>$firstname</a>
+    $mention = <a href='tg://user?id=$userId'>$firstname</a>; 
+    $mention2 = <a href='tg://user?id=1799882584'>$firstname</a>;
  /// for broadcasting in Channel
 $channel_id = "-100xxxxxxxxxx";
 
@@ -174,9 +174,9 @@ $flag = $data['data']['countryInfo']['emoji'];
 
     if ($result1 == true) {
     send_MDmessage($chat_id,$message_id, "
-   ╔╦═• ✠ • ═ • ✠ •═╦╗
-    ⚏★𝙱𝙸𝙽 𝙻𝙾𝙾𝙺𝚄𝙿★⚏
-   ╚╩═• ✠ • ═ • ✠ •═╩╝
+╔╦═• ✠ • ═ • ✠ •═╦╗
+⚏★𝙱𝙸𝙽 𝙻𝙾𝙾𝙺𝚄𝙿★⚏
+╚╩═• ✠ • ═ • ✠ •═╩╝
 
     ✅𝑩𝑰𝑵 𝑽𝑨𝑳𝑰𝑫𝑶✅
 💳𝗕𝗶𝗻: $bin
