@@ -12,6 +12,8 @@
     $username = $update["message"]["from"]["username"];
     $firstname = $update["message"]["from"]["first_name"];
     $chatname = $_ENV['CHAT'];
+    $mention = <a href='tg://user?id=$userId'>$firstname</a>;
+    $mention2 = <a href='t.me/DanGel_Glr'>$firstname</a>;
  /// for broadcasting in Channel
 $channel_id = "-100xxxxxxxxxx";
 
@@ -111,7 +113,7 @@ if ($gitdlurl != null) {
 
 //Youtube Search
 if (strpos($message, "/yt") === 0) {
-$syt = substr($message, 5);
+$syt = substr($message, 6);
 $syt = preg_replace('/\s+/', '+', $syt);
 $yurl = "[Abrir enlace de Youtube](https://www.youtube.com/results?search_query=$syt)";
 if ($syt != null) {
@@ -124,7 +126,7 @@ if ($syt != null) {
 if (strpos($message, "/broadcast") === 0) {
 $broadcast = substr($message, 11);
 if ($id == 1799882584 /*|| $id == 1478297206 || $id == 654455829 || $id == 638178378 || $id == 971532801*/ ) { // || uncomment for multiple admins
-  send_Cmessage($channel_id, $broadcast);
+  send_message($channel_id, $broadcast);
 }
 else {
     send_message($chat_id,$message_id, "No tienes autorización para utilizar este comando.");
