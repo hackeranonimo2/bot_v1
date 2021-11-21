@@ -12,8 +12,6 @@
     $username = $update["message"]["from"]["username"];
     $firstname = $update["message"]["from"]["first_name"];
     $chatname = $_ENV['CHAT'];
-    $mention = <a href='tg://user?id=$userId'>$firstname</a>; 
-    $mention2 = <a href='tg://user?id=1799882584'>$firstname</a>;
  /// for broadcasting in Channel
 $channel_id = "-100xxxxxxxxxx";
 
