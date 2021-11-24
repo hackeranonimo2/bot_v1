@@ -55,7 +55,7 @@ $channel_id = "-100xxxxxxxxxx";
         send_message($chat_id,$message_id, $date);
     }
    if($message == "/help"){
-        $help = "Contacto: <a href="https://t.me/DanGel_Glr"></a>";
+        $help = "Contacto: Dangel";
         send_message($chat_id,$message_id, $help);
     }
    if($message == "/hora"){
