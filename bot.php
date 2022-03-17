@@ -77,11 +77,11 @@ if($message == "/random"){
       $toss =array("1","2","3","4","5","6","7","8","9","10");
     $random_toss=array_rand($toss,4);
     $tossed = $toss[$random_toss[0]];
-        send_message($chat_id,$message_id, "$tossed \nTossed By: <a href='tg://user?id=$userId'>$firstname</a>");
+        send_message($chat_id,$message_id, "$tossed \nTossed By: @DanGel_Glr");
     }
 
      if($message == "/info"){
-        send_message($chat_id,$message_id, "User Info \nName: $firstname\nID:$id \nUsername:" <a href='tg://user?id=$userId'>$firstname</a>);
+        send_message($chat_id,$message_id, "User Info \nName: $firstname\nID:$id \nUsername: @DanGel_Glr");
     }
 
 
@@ -142,7 +142,7 @@ if(strpos($message, "/bin") === 0){
     $bin = substr($message, 5);
     $curl = curl_init();
     curl_setopt_array($curl, [
-    CURLOPT_URL => "https://bins-su-api.vercel.app/api/".$bin,
+    CURLOPT_URL => "http://bins.su/".$bin,
     CURLOPT_RETURNTRANSFER => true,
     CURLOPT_FOLLOWLOCATION => true,
     CURLOPT_ENCODING => "",
@@ -183,7 +183,7 @@ $flag = $data['data']['countryInfo']['emoji'];
 🏦𝗕𝗮𝗻𝗸: $bank
 🌐𝗖𝗼𝘂𝗻𝘁𝗿𝘆: $country $flag
 📊𝗧𝘆𝗽𝗲: $type
-👤𝗖𝗵𝗲𝗰𝗸𝗲𝗱 𝗕𝘆: <a href='tg://user?id=$userId'>$firstname</a>");
+👤𝗖𝗵𝗲𝗰𝗸𝗲𝗱 𝗕𝘆: @DanGel_Glr");
     }
 else {
     send_MDmessage($chat_id,$message_id, "***𝗜𝗻𝘀𝗲𝗿𝘁𝗮 𝘂𝗻 𝗕𝗜𝗡 𝘃𝗮𝗹𝗶𝗱𝗼***");
@@ -238,7 +238,7 @@ Temp : $celcius °C
 Feels Like : $feels °C
 Humidity: $humidity
 Country: $country 
-Checked By: <a href='tg://user?id=$userId'>$firstname</a>");
+Checked By: @DanGel_Glr");
 }
 else {
            send_message($chat_id,$message_id, "Invalid City");
