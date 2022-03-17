@@ -81,7 +81,7 @@ if($message == "/random"){
     }
 
      if($message == "/info"){
-        send_message($chat_id,$message_id, "User Info \nName: $firstname\nID:$id \nUsername: <a href='tg://user?id=$userId'>$firstname</a>");
+        send_message($chat_id,$message_id, "User Info \nName: $firstname\nID:$id \nUsername:" <a href='tg://user?id=$userId'>$firstname</a>);
     }
 
 
