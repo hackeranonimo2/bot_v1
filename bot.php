@@ -1,5 +1,5 @@
 <?php
-    date_default_timezone_set("Asia/kolkata");
+    date_default_timezone_set("America/Managua");
     //Data From Webhook
     $content = file_get_contents("php://input");
     $update = json_decode($content, true);
@@ -20,7 +20,7 @@ if(strpos($message, "!bin") === 0){
     $bin = substr($message, 5);
     $curl = curl_init();
     curl_setopt_array($curl, [
-    CURLOPT_URL => "https://vercel-dos-flax.vercel.app/api/$bin",
+    CURLOPT_URL => "https://vercel-two-flax.vercel.app/api/".$bin,
     CURLOPT_RETURNTRANSFER => true,
     CURLOPT_FOLLOWLOCATION => true,
     CURLOPT_ENCODING => "",
